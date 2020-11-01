@@ -1,0 +1,23 @@
+<view class="dingzhou">
+    <image class="music {{isPlay?'song':''}}" src="../../images/music.svg" bindtap="musicAction" ></image>
+    <image class="arrow" src="../../images/arrow_d.svg" bind:touchstart="tStart" bind:touchmove="tMove" bind:touchend="tEnd"></image>
+    <view class="box">
+        <view class="page1">
+            <image animation="{{anim1}}"  src="../../images/dzt1.png" class="one"></image>
+            <image animation="{{anim2}}"  src="../../images/dzt2.png" class="two"></image>
+            <image animation="{{anim3}}" src="../../images/dzt3.png" class="three"></image>
+            <image animation="{{anim4}}" src="../../images/dzt4.png" class="four"></image>
+            <image animation="{{anim5}}" src="../../images/dzt5.png" class="five"></image>
+            <view class="main">
+                <view class="head">
+                    <view class="out" animation="{{anim6}}">
+                        <view class="inner" animation="{{anim7}}">
+                            <image animation="{{anim8}}" src="../../images/logo.png"/>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+</view>
