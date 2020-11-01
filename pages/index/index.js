@@ -18,14 +18,19 @@ Page({
                 name:'天份',
                 author:'薛之谦',
                 link:'http://sp.9sky.com/convert/song/music/2732/20181221131129501.mp3'
-            }
+            },
+            {
+                name:'没离开过',
+                author:'林志炫',
+                link:'http://sp.9sky.com/convert/song/music/2732/20181221131129501.mp3'
+            },
         ],
         isPlay:false,
     },
     onShow: function(){
         this.createAnimation();
         const myAudio = wx.getBackgroundAudioManager();
-        myAudio.src = 'http://sp.9sky.com/convert/song/music/2732/20181221131129501.mp3';
+        myAudio.src = 'https://audio04.dmhmusic.com/71_53_T10049727020_128_4_1_0_sdk-cpm/cn/0208/M00/79/9A/ChR47F0LYWCALR21AE15pMvzoeU842.mp3?xcode=333cceec28c2d341736bc74a3cb11efc77fbcf4';
         myAudio.title = '旧日足迹';
         // myAudio.epname = '旧日足迹'
         // myAudio.singer = 'beyond'

@@ -3,11 +3,11 @@
     <image class="arrow" src="../../images/arrow_d.svg" bind:touchstart="tStart" bind:touchmove="tMove" bind:touchend="tEnd"></image>
     <view class="box">
         <view class="page1">
-            <image animation="{{anim1}}"  src="../../images/dzt1.png" class="one"></image>
-            <image animation="{{anim2}}"  src="../../images/dzt2.png" class="two"></image>
-            <image animation="{{anim3}}" src="../../images/dzt3.png" class="three"></image>
-            <image animation="{{anim4}}" src="../../images/dzt4.png" class="four"></image>
-            <image animation="{{anim5}}" src="../../images/dzt5.png" class="five"></image>
+            <image animation="{{anim1}}" src="http://tiebapic.baidu.com/forum/w%3D580/sign=8113fffb5010b912bfc1f6f6f3fdfcb5/5022b68f8c5494eebc1db7593af5e0fe98257eab.jpg" class="one"></image>
+            <image animation="{{anim2}}" src="http://tiebapic.baidu.com/forum/w%3D580/sign=b1de5c70ada1cd1105b672288912c8b0/3eeafffaaf51f3defd8d012483eef01f3b2979ab.jpg" class="two"></image>
+            <image animation="{{anim3}}" src="http://tiebapic.baidu.com/forum/w%3D580/sign=8c3ffdbf2cc79f3d8fe1e4388aa1cdbc/331374c6a7efce1bd814708ab851f3deb58f65ab.jpg" class="three"></image>
+            <image animation="{{anim4}}" src="http://tiebapic.baidu.com/forum/w%3D580/sign=f610458cd4cec3fd8b3ea77de688d4b6/3712f21f3a292df5affc1455ab315c6035a873ab.jpg" class="four"></image>
+            <image animation="{{anim5}}" src="http://tiebapic.baidu.com/forum/w%3D580/sign=230b444d67cf3bc7e800cde4e100babd/44ed92ef76c6a7ef8a191066eafaaf51f2de66ab.jpg" class="five"></image>
             <view class="main">
                 <view class="head">
                     <view class="out" animation="{{anim6}}">
