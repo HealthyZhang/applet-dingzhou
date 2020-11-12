@@ -1,6 +1,7 @@
 //app.js
 App({
   globalData: {
-    userInfo: null
+    userInfo: null,
+    nowPage:0
   }
 })

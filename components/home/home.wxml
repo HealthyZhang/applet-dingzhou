@@ -1,0 +1,10 @@
+<view class="star-home">
+    <image animation="{{transparentAnimate}}" class="bg" src="../../images/coding.gif" />
+    <view wx:for="{{animas}}" wx:key="index" animation="{{item}}" class="star">
+        <image wx:if="{{index<5}}" style="width:100%;height:100%;border:none;border-radius:50%;" src="../../images/pic{{index+1}}.png" />
+        <text bindtap="open" wx:else style="text-align:center;line-height:100rpx;color:#FFF;font-size:50rpx;width:100rpx;height:100rpx;display:block;">开</text>
+    </view>
+    <view class="{{stop?'pics2':'pics'}}">
+        <image animation="{{animas2[index]}}" wx:for="{{animas}}" wx:key="index" class="{{'img'+index + ' img'}}" src="../../images/pic{{ index<5 ? index+1 : index >9 ?index-5: index-4}}.png" />
+    </view>
+</view>
