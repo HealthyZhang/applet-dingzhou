@@ -3,18 +3,14 @@ Page({
     data:{
         // 用于通信；
         nowPage:0,                              //当前页；
+        nowPaged:0,                              //当前页(延时改变class)；
         pageTurningDirection:'none',            //当前翻页方向
-        pageAnimation:'',                   //向下翻页动画；
-        // pageUpAnimation:'',                     //向上翻页动画；
+        pageAnimation:'',                       //向下翻页动画；
         pageUpDelayAnimation:'',                //向上延迟翻页动画；
         pageDownDelayAnimation:'',              //向下延迟翻页动画；
-        
-        top2:0,
-        animationUp:'',
-        myAudio:'',
-        
-        isPlay:false,
-        isMusicIconShow:false,
+        isAudioPlay:false,                      //音乐是否正在播放；
+        isMusicIconShow:false,                  //是否显示播放音乐图标
+
         // 不用于通信；用于数据介质；
         musicList:[
             {
@@ -34,19 +30,23 @@ Page({
             },
         ],
         touchSPoint:0,                          //滑动开始定位点；      
+        delayAnimationConfig:{                  //延时滑动参数；
+            delay : 1100,
+            duration : 0
+        },
+        myAudio:'',                             //播放器；
+        isPageTurning:false,                    //是否正在翻页中；
     },
     onShow: function(){
-        // this.createAnimation();
+        
     },
     onHide(){
-        // this.destoryAnimation();
-        // this.musicAction();
+        
     },
     // home图消失；开始h5宣传页；
     h5Start(e){
-        console.log('h5Start',e);
         setTimeout(()=>{
-            this.createAudio();
+            // this.createAudio();
             this.pageForward();
             this.createAnimation('up');
             this.createDelayAnimation('up');
@@ -55,11 +55,13 @@ Page({
     },
     // 翻页/前进/下一页；
     pageForward(){
-        this.nowPage(this.nowPage()/1 + 1);
+        let nowPage = this.nowPage();
+        nowPage >= 3?this.nowPage(1):this.nowPage(++nowPage)
     },
     // 翻页/后退/上一页；
     pageBackward(){
-        this.nowPage(this.nowPage() - 1);
+        let nowPage = this.nowPage();
+        nowPage <= 1 ? this.nowPage(3) : this.nowPage(--nowPage);
     },
     // 创建翻页动画；
     createAnimation(){
@@ -77,15 +79,19 @@ Page({
     },
     // 创建延迟动画
     createDelayAnimation(direction="up"){
-        const animation = wx.createAnimation();
-        const defaultConfig = {
+        const pageUpDelayAnimation = wx.createAnimation();
+        const pageDownDelayAnimation = wx.createAnimation();
+        let defaultConfig = {
             transformOrigin:'50% 50% 0',
             duration:1000,
-            delay:5000,
+            delay:3000,
             timingFunction:'linear'
         }
-        const pageUpDelayAnimation = animation.bottom(this.getScreenSize().height).step(defaultConfig);
-        const pageDownDelayAnimation = animation.top(0).step(defaultConfig);
+        // defaultConfig = Object.assign(defaultConfig,this.data.delayAnimationConfig);    //error : 使用const竟然 "defaultConfig" is read-only
+        defaultConfig = {...defaultConfig,...this.data.delayAnimationConfig}
+        const { height } = this.getScreenSize();
+        pageUpDelayAnimation.top(0-height).step(defaultConfig);
+        pageDownDelayAnimation.top(height).step(defaultConfig);
         this.setData({
             pageTurningDirection:direction,
             pageUpDelayAnimation,
@@ -104,7 +110,7 @@ Page({
         // console.log('touchMove',e);
     },
     touchEnd(e){
-        console.log('touchEnd',e);
+        if(this.data.isPageTurning)return;
         let end = this.data.touchSPoint - e.changedTouches[0].pageY;
         end > 100?
             this.pageForward()
@@ -116,25 +122,16 @@ Page({
     touchCancel(e){
         console.log('touchCancel',e);
     },
-    animationUp(){
-        const animation = wx.createAnimation({
-            duration:1500,
-        })
-        animation.top(0).step()
-        this.setData({
-            animationUp:animation.export()
-        })
-    },
     /**
      * 音乐相关；
      */
     // 暂停与开始音乐播放；
     musicAction(){
-        this.data.isPlay?
+        this.data.isAudioPlay?
             this.data.myAudio.pause():
             this.data.myAudio.play();
         this.setData({
-            isPlay:!this.data.isPlay
+            isAudioPlay:!this.data.isAudioPlay
         })
     },
     createAudio(){
@@ -147,10 +144,9 @@ Page({
         console.log(myAudio,this.data.musicList[2].link,myAudio.src)
         this.setData({
             myAudio,
-            isPlay:true,
+            isAudioPlay:true,
             isMusicIconShow:true
         });
-        
     },
     /**
      * 通用方法暂放；
@@ -164,10 +160,17 @@ Page({
     // 设置与获取当前页；
     nowPage(pageNum){
         if(pageNum){
+            this.data.isPageTurning = true;
             app.globalData.nowPage = pageNum;
             this.setData({
                 nowPage:pageNum
             })
+            setTimeout(()=>{
+                this.setData({
+                    nowPaged:this.data.nowPage
+                });
+                this.data.isPageTurning = false;
+            },this.data.delayAnimationConfig.delay + this.data.delayAnimationConfig.duration)
         }else{
             return app.globalData.nowPage
         }       

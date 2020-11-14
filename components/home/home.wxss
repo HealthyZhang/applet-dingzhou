@@ -5,6 +5,8 @@
 .star-home{
     width: 100%;
     height: 100%;
+    position: absolute;
+    left: 0;
 }
 .star-home .bg{
     /* display: block; */

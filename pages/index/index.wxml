@@ -1,21 +1,22 @@
+<wxs src="../../utils/tools.wxs" module="tools"></wxs>
 <view class="dingzhou">
-    <image wx:if="{{isMusicIconShow}}" class="music {{isPlay?'song':''}}" src="../../images/music.svg" bindtap="musicAction" ></image>
+    <image wx:if="{{isMusicIconShow}}" class="music {{isAudioPlay?'song':''}}" src="../../images/music.svg" bindtap="musicAction" ></image>
     <image class="arrow" src="../../images/arrow_d.svg" bind:touchstart="tStart" bind:touchmove="tMove" bind:touchend="tEnd"></image>
     <view class="box">
         <my-home  animation="{{nowPage == 1?pageUpDelayAnimation:null}}"  class="now_page" bind:h5Start="h5Start"></my-home>
         <page1 
-            animation="{{nowPage == 1?pageAnimation:nowPage >1 ?pageUpDelayAnimation:null}}" 
-            class="{{nowPage <1 ?'page_down':nowPage > 1 ?'page_up':'now_page'}}"
+            animation="{{tools.selectAnimation(1,nowPage,pageAnimation,pageUpDelayAnimation,pageDownDelayAnimation)}}" 
+            class="{{tools.selectClass(1,nowPage,nowPaged)}}"
             catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" catchtouchcancel="touchCancel"
         ></page1>
         <page2 
-            animation="{{nowPage == 2 ?pageAnimation:nowPage > 2?pageUpDelayAnimation:pageDownDelayAnimation}}" 
-            class="{{nowPage <2 ?'page_down':nowPage > 2 ?'page_up':'now_page'}}"
+            animation="{{tools.selectAnimation(2,nowPage,pageAnimation,pageUpDelayAnimation,pageDownDelayAnimation)}}" 
+            class="{{tools.selectClass(2,nowPage,nowPaged)}}"
             catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" catchtouchcancel="touchCancel"
         ></page2>
         <page3 
-            animation="{{nowPage == 3 ?pageAnimation:nowPage > 3?pageUpDelayAnimation:pageDownDelayAnimation}}" 
-            class="{{nowPage <3 ?'page_down':nowPage > 3 ?'page_up':'now_page'}}"
+            animation="{{tools.selectAnimation(3,nowPage,pageAnimation,pageUpDelayAnimation,pageDownDelayAnimation)}}" 
+            class="{{tools.selectClass(3,nowPage,nowPaged)}}"
             catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" catchtouchcancel="touchCancel"
         ></page3>
     </view>
