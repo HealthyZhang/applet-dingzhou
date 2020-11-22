@@ -1,5 +1,11 @@
-var selectAnimation = function(index,nowPage,pageAnimation,pageUpDelayAnimation,pageDownDelayAnimation){
-    return nowPage == index ? pageAnimation : nowPage > index ? pageUpDelayAnimation : pageDownDelayAnimation;
+var selectAnimation = function(nowIndex,nowPage,pageAnimation,pageUpDelayAnimation,pageDownDelayAnimation){
+    if(nowIndex == 4 && nowPage ==1){
+        return pageUpDelayAnimation;
+    }
+    if(nowIndex == 1 && nowPage ==4 ){
+        return pageDownDelayAnimation;
+    }
+    return nowPage == nowIndex ? pageAnimation : nowPage > nowIndex ? pageUpDelayAnimation : pageDownDelayAnimation;
 };
 var selectClass = function(index,nowPage,nowPaged){
     var zIndex = nowPage == index ? '_20index' : '_10index';

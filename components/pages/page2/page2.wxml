@@ -1,3 +1,7 @@
 <view class="page2">
-    page2
+    <image class="bg" src="../../../images/water_fall.gif" />
+    <view class="title">
+        <image animation="{{heightAnimaiton}}" src="../../../images/logo.png" />
+        <text animation="{{opacityAnimation}}" class="kyt">山水</text>
+    </view>
 </view>

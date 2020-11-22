@@ -13,6 +13,9 @@ Component({
         createAnimate(width,height){
             
         },
+        destoryAnimation(){
+            
+        },
         getHeight(){
             const _this = this;
             wx.getSystemInfo({

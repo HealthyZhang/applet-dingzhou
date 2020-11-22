@@ -1,3 +1,8 @@
 <view class="page1">
-    page1
+    <image class="bg" src="../../../images/coding.gif" />
+    <view class="title">
+        <image animation="{{heightAnimaiton}}" src="../../../images/logo.png" />
+        <text animation="{{opacityAnimation}}" class="kyt">开元塔</text>
+    </view>
+    <image class="ta" src="../../../images/pic1.png" />
 </view>

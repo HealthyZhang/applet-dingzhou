@@ -8,4 +8,20 @@ function createAnimation(config = {}){
     return wx.createAnimation({...defaultConfig,...config});
     
 }
-export default createAnimation;
+function height(height,config){
+    const animation = createAnimation(config);
+    animation.height(height).step();
+    return animation;
+}
+function opacity(opacity,config){
+    const animation = createAnimation(config);
+    animation.opacity(opacity).step();
+    return animation;
+}
+const obj = {
+    createAnimation,
+    height,
+    opacity,
+    
+}
+module.exports = obj;

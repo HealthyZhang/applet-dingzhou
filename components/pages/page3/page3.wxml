@@ -1,3 +1,6 @@
 <view class="page3">
-    page3
+    <image class="bg" src="../../../images/timg.gif" />
+    <view class="title">
+        <image animation="{{heightAnimaiton}}" src="../../../images/logo.png" />
+    </view>
 </view>

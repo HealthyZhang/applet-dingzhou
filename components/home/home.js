@@ -1,4 +1,4 @@
-import createAnimation from '../../utils/animation';
+import {createAnimation} from '../../utils/animation';
 Component({
     properties:{
 
@@ -12,7 +12,8 @@ Component({
         timer:null,
         timer2:null,
         height:'',
-        width:''
+        width:'',
+        clicked:false
     },
     attached(){
         // setInterval(() => {
@@ -32,7 +33,7 @@ Component({
 
                 const delay = this.randomNum(100,5000);
                 animas[i].left(randX).top(randY).step({ duration:1000});
-                animas[i].opacity(.4).step({ duration:1000,delay});
+                animas[i].opacity(.7).step({ duration:1000,delay});
                 animas[i].left(randX).top(randY).step({ duration:1000});
             }
             this.data.timer2 = setTimeout(()=>{
@@ -60,6 +61,8 @@ Component({
             return parseInt(Math.random()*(max-min)+min,10)
         },
         open(){
+            if(this.data.clicked)return;
+            this.data.clicked = true;
             clearInterval(this.data.timer);
             clearTimeout(this.data.timer2);
             setTimeout(()=>{

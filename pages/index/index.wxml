@@ -1,24 +1,32 @@
 <wxs src="../../utils/tools.wxs" module="tools"></wxs>
 <view class="dingzhou">
     <image wx:if="{{isMusicIconShow}}" class="music {{isAudioPlay?'song':''}}" src="../../images/music.svg" bindtap="musicAction" ></image>
-    <image class="arrow" src="../../images/arrow_d.svg" bind:touchstart="tStart" bind:touchmove="tMove" bind:touchend="tEnd"></image>
+    <!-- <image class="arrow" src="../../images/arrow_d.svg" bind:touchstart="tStart" bind:touchmove="tMove" bind:touchend="tEnd"></image> -->
     <view class="box">
         <my-home  animation="{{nowPage == 1?pageUpDelayAnimation:null}}"  class="now_page" bind:h5Start="h5Start"></my-home>
         <page1 
+            id="page1"
             animation="{{tools.selectAnimation(1,nowPage,pageAnimation,pageUpDelayAnimation,pageDownDelayAnimation)}}" 
             class="{{tools.selectClass(1,nowPage,nowPaged)}}"
             catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" catchtouchcancel="touchCancel"
         ></page1>
-        <page2 
+        <page2  
+            id="page2" 
             animation="{{tools.selectAnimation(2,nowPage,pageAnimation,pageUpDelayAnimation,pageDownDelayAnimation)}}" 
             class="{{tools.selectClass(2,nowPage,nowPaged)}}"
             catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" catchtouchcancel="touchCancel"
         ></page2>
-        <page3 
+        <page3  
+            id="page3" 
             animation="{{tools.selectAnimation(3,nowPage,pageAnimation,pageUpDelayAnimation,pageDownDelayAnimation)}}" 
             class="{{tools.selectClass(3,nowPage,nowPaged)}}"
             catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" catchtouchcancel="touchCancel"
         ></page3>
+        <wechat 
+            animation="{{tools.selectAnimation(4,nowPage,pageAnimation,pageUpDelayAnimation,pageDownDelayAnimation)}}" 
+            class="{{tools.selectClass(4,nowPage,nowPaged)}}"
+            catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" catchtouchcancel="touchCancel"
+        ></wechat>
     </view>
 
 </view>

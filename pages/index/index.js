@@ -38,7 +38,10 @@ Page({
         isPageTurning:false,                    //是否正在翻页中；
     },
     onShow: function(){
-        
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage', 'shareTimeline']
+        })
     },
     onHide(){
         
@@ -46,7 +49,7 @@ Page({
     // home图消失；开始h5宣传页；
     h5Start(e){
         setTimeout(()=>{
-            // this.createAudio();
+            this.createAudio();
             this.pageForward();
             this.createAnimation('up');
             this.createDelayAnimation('up');
@@ -56,12 +59,12 @@ Page({
     // 翻页/前进/下一页；
     pageForward(){
         let nowPage = this.nowPage();
-        nowPage >= 3?this.nowPage(1):this.nowPage(++nowPage)
+        nowPage >= 4?this.nowPage(1):this.nowPage(++nowPage)
     },
     // 翻页/后退/上一页；
     pageBackward(){
         let nowPage = this.nowPage();
-        nowPage <= 1 ? this.nowPage(3) : this.nowPage(--nowPage);
+        nowPage <= 1 ? this.nowPage(4) : this.nowPage(--nowPage);
     },
     // 创建翻页动画；
     createAnimation(){
@@ -103,7 +106,6 @@ Page({
     },
     // touch滑动事件
     touchStart(e){
-        console.log('touchStart',e);
         this.data.touchSPoint = e.touches[0].pageY;
     },
     touchMove(e){
@@ -148,6 +150,19 @@ Page({
             isMusicIconShow:true
         });
     },
+    // 控制组件内动画开关；
+    componentAnimation(pageNum = 0){
+        const arr = [1,2,3];
+        arr.forEach((ele,index)=>{
+            let selector = '#page' + ( index+1 );
+            if(pageNum == ++index){
+                this.selectComponent(selector).createAnimate();
+            }else{
+                this.selectComponent(selector).destoryAnimation();
+            }
+        })
+        this.triggerEvent("myevent")
+    },
     /**
      * 通用方法暂放；
      */
@@ -171,6 +186,7 @@ Page({
                 });
                 this.data.isPageTurning = false;
             },this.data.delayAnimationConfig.delay + this.data.delayAnimationConfig.duration)
+            this.componentAnimation(pageNum)
         }else{
             return app.globalData.nowPage
         }       

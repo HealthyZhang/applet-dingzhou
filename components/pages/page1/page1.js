@@ -1,32 +1,29 @@
+const { height,opacity } = require("../../../utils/animation");
 
 Component({
     properties:{
 
     },
     data:{
-        
+        heightAnimaiton:'',
+        opacityAnimation:''
     },
     attached(){
-        
+        // this.createAnimate();
     },
     methods:{
-        createAnimate(width,height){
+        createAnimate(){
             
-        },
-        getHeight(){
-            const _this = this;
-            wx.getSystemInfo({
-                success (res) {
-                    const height = _this.data.height = res.windowHeight;
-                    const width = _this.data.width = res.windowWidth;
-                }
+            this.setData({
+                heightAnimaiton:height("200rpx",{ delay:500 }).export(),
+                opacityAnimation:opacity(1,{delay:1300}).export()
             })
         },
-        randomNum(min,max){
-            return parseInt(Math.random()*(max-min)+min,10)
+        destoryAnimation(){
+            this.setData({
+                heightAnimaiton:height("0").export(),
+                opacityAnimation:opacity(0).export()
+            })
         },
-        open(){
-            
-        }
     }
 })

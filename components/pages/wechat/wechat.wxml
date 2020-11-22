@@ -1,0 +1,4 @@
+<view class="wechat">
+    <image class="bg" src="../../../images/girl.gif" />
+    <image show-menu-by-longpress="true"	 class="code" animation="{{heightAnimaiton}}" src="../../../images/code.jpg" />
+</view>

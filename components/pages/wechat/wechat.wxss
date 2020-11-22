@@ -1,0 +1,26 @@
+.wechat{
+    /* background: #333; */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+.wechat .bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+/* title */
+.wechat .code{
+    width: 300rpx;
+    height: 300rpx;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100rpx;
+    margin: auto;
+    z-index: 11;
+}

@@ -3,7 +3,8 @@
     "my-home":"/components/home/home",
     "page1":"/components/pages/page1/page1",
     "page2":"/components/pages/page2/page2",
-    "page3":"/components/pages/page3/page3"
+    "page3":"/components/pages/page3/page3",
+    "wechat":"/components/pages/wechat/wechat"
   }
     
 }
