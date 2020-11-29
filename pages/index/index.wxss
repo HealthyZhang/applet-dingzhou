@@ -2,29 +2,6 @@
   from{transform: rotate(0deg)}
   to{transform: rotate(359deg)}
 }
-.open{
-  width: 120rpx;
-  height: 120rpx;
-  color: #fff;
-  position: relative;
-  z-index: 99;
-  margin: 40rpx;
-}
-.open view{
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  opacity: 0.7;
-}
-.open image{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  animation: rotate 2s linear infinite;
-}
 .song{
   animation: rotate 1.2s linear infinite;
 }
