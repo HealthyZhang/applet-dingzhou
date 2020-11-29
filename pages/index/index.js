@@ -10,7 +10,6 @@ Page({
         pageDownDelayAnimation:'',              //向下延迟翻页动画；
         isAudioPlay:false,                      //音乐是否正在播放；
         isMusicIconShow:false,                  //是否显示播放音乐图标
-
         // 不用于通信；用于数据介质；
         musicList:[
             {
@@ -36,6 +35,8 @@ Page({
         },
         myAudio:'',                             //播放器；
         isPageTurning:false,                    //是否正在翻页中；
+    },
+    onLoad(){
     },
     onShow: function(){
         wx.showShareMenu({

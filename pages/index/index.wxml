@@ -1,6 +1,6 @@
 <wxs src="../../utils/tools.wxs" module="tools"></wxs>
 <view class="dingzhou">
-<view class="open">
+<view class="open" bindtap="pageForward">
     <view>开</view>
     <image src="../../images/open.png"></image>
 </view>
