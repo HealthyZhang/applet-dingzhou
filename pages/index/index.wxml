@@ -1,10 +1,10 @@
 <wxs src="../../utils/tools.wxs" module="tools"></wxs>
 <view class="dingzhou">
 <view  hidden="{{nowPage != 4}}" class="auther">Author:你猜，猜对告诉你</view>
-<view class="open" bindtap="pageForward">
+<!-- <view class="open" bindtap="pageForward">
     <view>开</view>
     <image src="../../images/open.png"></image>
-</view>
+</view> -->
     <image wx:if="{{isMusicIconShow}}" class="music {{isAudioPlay?'song':''}}" src="../../images/music.svg" bindtap="musicAction" ></image>
     <!-- <image class="arrow" src="../../images/arrow_d.svg" bind:touchstart="tStart" bind:touchmove="tMove" bind:touchend="tEnd"></image> -->
     <view class="box">
