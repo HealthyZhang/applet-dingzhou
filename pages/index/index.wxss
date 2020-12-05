@@ -32,6 +32,17 @@
   height: 100%;
   box-sizing: border-box;
 }
+.auther{
+  position: fixed;
+  bottom: 40rpx;
+  right: 30rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  z-index: 99;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 /*box*/
 .box{
   width: 100%;

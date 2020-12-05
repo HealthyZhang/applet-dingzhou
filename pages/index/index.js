@@ -190,7 +190,7 @@ Page({
             this.componentAnimation(pageNum)
         }else{
             return app.globalData.nowPage
-        }       
+        }      
     },
     // 获取屏幕宽高
     getScreenSize(){

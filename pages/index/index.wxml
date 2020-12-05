@@ -1,5 +1,6 @@
 <wxs src="../../utils/tools.wxs" module="tools"></wxs>
 <view class="dingzhou">
+<view  hidden="{{nowPage != 4}}" class="auther">Author:你猜，猜对告诉你</view>
 <view class="open" bindtap="pageForward">
     <view>开</view>
     <image src="../../images/open.png"></image>
